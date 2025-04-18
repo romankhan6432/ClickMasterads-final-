@@ -23,7 +23,7 @@ interface WithdrawalHistoryProps {
 
 interface WithdrawalRecord {
   id: string;
-  timestamp: string;
+  createdAt: string;
   amount: number;
   bdtAmount: number;
   method: string;
@@ -130,7 +130,7 @@ const WithdrawalDetails = ({ isOpen, onClose, withdrawal }: WithdrawalDetailsPro
                              'Processing'}
                           </div>
                           <div className="text-sm text-[#848E9C]">
-                            {new Date(withdrawal.timestamp).toLocaleString()}
+                            {new Date(withdrawal.createdAt).toLocaleString()}
                           </div>
                         </div>
                       </div>
@@ -323,7 +323,7 @@ export default function WithdrawalHistory({ isOpen, onClose }: WithdrawalHistory
                                     {withdrawal.amount} {withdrawal.method === 'bdt' ? 'BDT' : 'USDT'}
                                   </div>
                                   <div className="text-sm text-[#848E9C]">
-                                    {new Date(withdrawal.timestamp).toLocaleString()}
+                                    {new Date(withdrawal.createdAt).toLocaleString()}
                                   </div>
                                 </div>
                               </div>
