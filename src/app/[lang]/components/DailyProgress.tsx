@@ -18,7 +18,7 @@ export default function DailyProgress() {
     const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const { user } = useSelector((state: RootState) => state.public.auth);
     const adsWatched = user?.adsWatched || 0
-    const progress = Math.min((adsWatched / 5000) * 100, 100);
+    const progress = Math.min((adsWatched / 500) * 100, 100);
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -69,7 +69,7 @@ export default function DailyProgress() {
                 />
             </div>
             <div className="text-center">
-                {adsWatched >= 1000 && (
+                {adsWatched >= 500 && (
                     <div className="text-red-400 font-bold mb-2 animate-pulse">
                         Daily Limit Reached!
                     </div>

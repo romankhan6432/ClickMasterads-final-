@@ -192,7 +192,7 @@ export default function Home() {
                                     ? 'bg-red-500 hover:bg-red-600'
                                     : 'bg-green-500 hover:bg-green-600'
                                     } transition-colors duration-300`}
-                                    disabled={ Number(user?.adsWatched) >= 1000}
+                                    disabled={ Number(user?.adsWatched) >= 500}
                             >
                                 {autoShowAds ? t('navigation.stopAutoAds') : t('navigation.startAutoAds')}
                             </button>
