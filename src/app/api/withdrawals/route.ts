@@ -85,41 +85,40 @@ function validateCryptoAddress(address: string, method: string): boolean {
 
     return true; // For non-crypto methods
 }
-
-export async function GET( ) {
+export async function GET() {
     try {
-     
+
         await dbConnect();
 
-        const session : any = await getServerSession(authOptions);
+        const session: any = await getServerSession(authOptions);
 
-let result ; 
-if (session.user.role === 'admin') {
-    const withdrawals = await WithdrawalHistory.find({}).sort({ createdAt: -1 });
- result = withdrawals.map(w => ({
-    ...w._doc,
-    bdtAmount: w.method.toLowerCase() === 'bkash' || w.method.toLowerCase() === 'nagad'
-        ? w.amount
-        : convertUSDTtoBDT(w.amount)
-}));
+        console.log(session);
+        if (session.user?.role === 'admin') {
+            const withdrawals = await WithdrawalHistory.find({}).sort({ createdAt: -1 });
+            const withdrawalsWithConversion = withdrawals.map(w => ({
+                ...w._doc,
+                bdtAmount: w.method.toLowerCase() === 'bkash' || w.method.toLowerCase() === 'nagad'
+                    ? w.amount
+                    : convertUSDTtoBDT(w.amount)
+            }));
+            return NextResponse.json({ result: withdrawalsWithConversion });
+        }
 
 
-}
-
-        if (session.user.role === 'user') {
-            const withdrawals = await WithdrawalHistory.find({ telegramId : session.user.telegramId}).sort({ createdAt: -1 });
-           result = withdrawals.map(w => ({
+        if (session && session.user?.role === 'user') {
+            const withdrawals = await WithdrawalHistory.find({ telegramId : session.user.telegramId }).sort({ createdAt: -1 });
+            const withdrawalsWithConversion = withdrawals.map(w => ({
                 ...w._doc,
                 bdtAmount: w.method.toLowerCase() === 'bkash' || w.method.toLowerCase() === 'nagad'
                     ? w.amount
                     : convertUSDTtoBDT(w.amount)
             }));
 
-            return NextResponse.json({ result });
+            return NextResponse.json({ result: withdrawalsWithConversion });
         }
 
-       
- 
+
+
     } catch (error: any) {
         console.error(error);
         return NextResponse.json({ error: error.message }, { status: 500 });
