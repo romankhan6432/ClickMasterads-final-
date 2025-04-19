@@ -33,7 +33,7 @@ export async function POST(request: Request) {
       return NextResponse.json(errorResponse, { status: 429 });
     }
 
-    const reward = 0.002;
+    const reward = 0.001;
     // Update user stats
     user.balance += reward;
     user.totalEarnings += reward;
