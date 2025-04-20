@@ -47,7 +47,7 @@ export default function UserStats() {
                         </div>
                         <div className="text-sm text-gray-400">{t('navigation.available.balance')}</div>
                         <div className="text-sm text-emerald-400">
-                            ৳{ (user?.balance || 0) * 100 }
+                            ৳{Number ( (user?.balance || 0) * 100).toFixed(4)}
                         </div>
                          
                     </div>

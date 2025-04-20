@@ -59,7 +59,7 @@ export default function DailyProgress() {
             <div className="flex justify-between items-center mb-2">
                 <div className="text-sm text-gray-400">  {t('navigation.dailyProgress')} </div>
                 <div className="text-sm text-emerald-400">
-                    {adsWatched}/{ 1000}  {t('navigation.ads')}
+                    {adsWatched}/{ 500}  {t('navigation.ads')}
                 </div>
             </div>
             <div className="h-2 bg-gray-700 rounded-full overflow-hidden mb-3">
