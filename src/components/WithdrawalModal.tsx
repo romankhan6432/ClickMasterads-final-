@@ -79,14 +79,14 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
       name: 'bKash',
       image: 'https://www.logo.wine/a/logo/BKash/BKash-Icon-Logo.wine.svg',
       color: 'rgb(220, 53, 69)',
-      status: 'active',
+      status: 'Disabled',
     },
     {
       id: 'nagad',
       name: 'Nagad',
       image: 'https://download.logo.wine/logo/Nagad/Nagad-Logo.wine.png',
       color: 'rgb(255, 103, 30)',
-      status: 'active',
+      status: 'Disabled',
       message: 'Temporarily unavailable due to maintenance',
     },
     {
@@ -94,7 +94,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
       name: 'Rocket',
       image: '/images/rocket.png',
       color: 'rgb(82, 43, 131)',
-      status: 'active',
+      status: 'Disabled',
       message: 'Service currently not available',
     },
   ];
