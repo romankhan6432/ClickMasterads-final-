@@ -538,7 +538,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
                         !amount ||
                         !phoneNumber ||
                         !!getPhoneNumberError(phoneNumber) ||
-                        Number(amount) < 50 ||
+                        Number(amount) < 150 ||
                         Number(amount) > usdtEquivalent
                       }
                     >
