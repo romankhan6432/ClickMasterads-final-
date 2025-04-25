@@ -113,7 +113,10 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
         return 'text-gray-400';
     }
   };
+    
 
+
+  
   const getStatusText = (status: PaymentMethod['status']) => {
     switch (status) {
       case 'active':
