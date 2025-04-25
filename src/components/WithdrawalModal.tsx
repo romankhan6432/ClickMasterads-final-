@@ -86,7 +86,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
       name: 'Nagad',
       image: 'https://download.logo.wine/logo/Nagad/Nagad-Logo.wine.png',
       color: 'rgb(255, 103, 30)',
-      status: 'suspended',
+      status: 'active',
       message: 'Temporarily unavailable due to maintenance',
     },
     {
@@ -94,7 +94,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
       name: 'Rocket',
       image: '/images/rocket.png',
       color: 'rgb(82, 43, 131)',
-      status: 'suspended',
+      status: 'active',
       message: 'Service currently not available',
     },
   ];
