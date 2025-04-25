@@ -509,14 +509,20 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
                                 <span className="text-gray-400">{t('withdrawal.usdtEquivalent', 'Equivalent in USDT')}:</span>
                                 <span className="text-blue-400">{usdtEquivalent} USDT</span>
                               </div>
+                             
                             </div>
                           )}
                         </div>
                       </div>
+                      minimum withdraw 150 BDT
                     </form>
                   </div>
                 )}
  
+
+
+
+
                 {/* Fixed Bottom Footer Buttons */}
                 {paymentMethods.some(method => method.status === 'active') && (
                   <div className={`absolute bottom-0 left-0 w-full bg-[#0B0E11] border-t border-gray-800 px-6 py-4 flex gap-4 z-20 ${isMobile ? '' : 'rounded-b-2xl'}`} style={{boxShadow: '0 -2px 16px 0 rgba(0,0,0,0.6)'}}>
