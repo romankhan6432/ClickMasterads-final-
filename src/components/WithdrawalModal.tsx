@@ -79,7 +79,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
       name: 'bKash',
       image: 'https://www.logo.wine/a/logo/BKash/BKash-Icon-Logo.wine.svg',
       color: 'rgb(220, 53, 69)',
-      status: 'suspended',
+      status: 'active',
     },
     {
       id: 'nagad',
