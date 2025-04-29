@@ -10,20 +10,21 @@ interface BottomNavigationProps {
     onRules: () => void;
     onAbout: () => void;
     onSupport: () => void;
-   
 }
 
-export default function BottomNavigation({   onWithdraw,  onTopEarners,   onRules, onAbout, onSupport }: BottomNavigationProps) {
+export default function BottomNavigation({ onWithdraw, onTopEarners, onRules, onAbout, onSupport }: BottomNavigationProps) {
     const { t } = useTranslation();
     const maintenanceData = useSelector((state: RootState) => state.private.settings.maintenance);
+    
+    if (maintenanceData?.isEnabled) {
+        return null;
+    }
     
     return (
         <nav className="fixed bottom-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-xl border-t border-gray-800/50 shadow-2xl pb-safe md:hidden">
             <div className="max-w-screen-xl mx-auto px-2 sm:px-4">
                 <div className="flex justify-around items-center py-2 sm:py-3 gap-1">
-                    {!maintenanceData?.isEnabled && (
-                        <NavButton icon="💰" label={t('withdraw')} onClick={onWithdraw} />
-                    )}
+                    <NavButton icon="💰" label={t('withdraw')} onClick={onWithdraw} />
                     <NavButton icon="👑" label={t('topEarners')} onClick={onTopEarners} />
                     <NavButton icon="📜" label={t('rules')} onClick={onRules} />
                     <NavButton icon="ℹ️" label={t('about')} onClick={onAbout} />
