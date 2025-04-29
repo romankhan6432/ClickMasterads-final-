@@ -27,7 +27,7 @@ import { useSession } from 'next-auth/react';
 
 import { RootState } from '@/modules/store';
 import WithdrawalModal from '@/components/WithdrawalModal';
- 
+import { loadSettings  } from '@/modules/private/settings'
 
 // Client component
 export default function Home() {
@@ -119,18 +119,16 @@ export default function Home() {
         }
     };
 
-    const [maintenanceData , setmaintenanceData] = useState<any>(null)
-    
+ 
+    const maintenanceData = useSelector((state : RootState) => state.private.settings.maintenance )
     useEffect(() =>{
-        API_CALL({ url : '/admin/maintenance'})
-        .then((res) => setmaintenanceData(res.response)) 
-
-   }, [])
+        dispatch(loadSettings())
+   }, [dispatch])
  
 
    
 
-    if(maintenanceData?.isEnabled){
+    if(maintenanceData.isEnabled){
         return (
             <MaintenanceModel  data={ maintenanceData }  />
         )

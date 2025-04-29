@@ -16,7 +16,7 @@ import { directLinksReducer } from './public/directLinks/directLinksReducer';
 import { withdrawalReducer } from './public/withdrawal/withdrawalReducer';
 import { topEarnersReducer } from './public/topEarners/topEarnersReducer';
 import { achievementReducer } from './public/achievement/achievementReducer';
-
+import { settingsReducer } from './private/settings/reducer';
 // Root saga
 import { rootSaga } from './rootSaga';
 
@@ -28,6 +28,8 @@ const privateReducers = combineReducers({
   user: userReducer,
   admin: adminReducer,
   withdrawals: withdrawalsReducer,
+  settings : settingsReducer
+  
 });
 
 // Combine public reducers
