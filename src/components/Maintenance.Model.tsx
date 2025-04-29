@@ -91,7 +91,7 @@ export default function MaintenanceModel() {
                         </div>
                     </div>
                     
-                    <h1 className="text-3xl md:text-4xl font-bold text-white animate-rgb-flicker">
+                    <h1 className="text-4xl md:text-5xl font-bold text-white animate-rgb-flicker">
                         Under Maintenance
                     </h1>
                     
@@ -177,7 +177,7 @@ export default function MaintenanceModel() {
                     )}
                     
 
-                    ghjgh
+                   
                     <div className="pt-4 md:pt-6">
                         <button
                             onClick={() => setIsOpen(false)}
