@@ -182,7 +182,7 @@ export default function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                         {t('joinDate')}: {user?.createdAt}
                     </div>
 
-                    {/* Logout Button */}
+                    {/* Logout Button 
                     <div className="mt-4">
                         <button
                             onClick={() => signOut()}
@@ -193,9 +193,9 @@ export default function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                             </svg>
                             { t('logout') }
                         </button>
-                    </div>
+                    </div>   */}
                 </div>
             </div>
-        </div>
+        </div>  
     );
 }

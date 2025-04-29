@@ -28,7 +28,7 @@ export default function MaintenanceModel() {
                 const now = Date.now();
                 const remaining = Math.max(0, endTime - now);
                 const elapsed = Math.min(now - startTime, totalDuration);
-                
+
                 if (remaining <= 0) {
                     setTimeLeft(0);
                     setElapsedTime(totalDuration);
@@ -77,12 +77,12 @@ export default function MaintenanceModel() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-pink-500/20 via-transparent to-transparent animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
             </div>
-            
+
             <div className="relative w-full h-full md:h-auto md:max-w-2xl bg-gradient-to-br from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-md border border-gray-700/50 rounded-none md:rounded-2xl shadow-2xl p-4 md:p-8 mx-auto flex flex-col justify-center">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" style={{ animationDelay: '1s' }}></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-pink-500/10 via-transparent to-transparent" style={{ animationDelay: '2s' }}></div>
-                
+
                 <div className="text-center space-y-6 md:space-y-8 relative z-10">
                     <div className="relative">
                         <div className="absolute inset-0 bg-yellow-500/20 rounded-full animate-ping-slow"></div>
@@ -90,11 +90,11 @@ export default function MaintenanceModel() {
                             <span className="text-4xl md:text-5xl animate-rotate-slow">🔧</span>
                         </div>
                     </div>
-                    
+
                     <h1 className="text-4xl md:text-5xl font-bold text-white animate-rgb-flicker">
                         Under Maintenance
                     </h1>
-                    
+
                     <style jsx global>{`
                         @keyframes rgbFlicker {
                             0% { color: rgb(255, 0, 0); }
@@ -136,7 +136,7 @@ export default function MaintenanceModel() {
                             animation: rotate-slow 4s linear infinite;
                         }
                     `}</style>
-                    
+
                     <p className="text-lg md:text-xl text-gray-300 px-4">
                         {maintenanceData.message || 'We are currently performing maintenance. Please check back later.'}
                     </p>
@@ -145,7 +145,7 @@ export default function MaintenanceModel() {
                         <div className="space-y-4 md:space-y-6 px-4">
                             <div className="relative w-full bg-gray-800/50 rounded-full h-4 md:h-5 overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-orange-500 opacity-20"></div>
-                                <div 
+                                <div
                                     className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-orange-500 h-full transition-all duration-500"
                                     style={{ width: `${progress}%` }}
                                 />
@@ -175,18 +175,18 @@ export default function MaintenanceModel() {
                             </div>
                         </div>
                     )}
-                    
 
-                   
+
+
                     <div className="pt-4 md:pt-6">
                         <button
                             onClick={() => setIsOpen(false)}
                             className="w-full md:w-auto px-8 py-3 md:py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 text-lg md:text-xl"
                         >
 
-                           thanks for visit
+                            thanks for visit
                         </button>
-                        
+
                     </div>
                 </div>
             </div>
