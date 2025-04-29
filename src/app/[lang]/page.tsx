@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
+import { API_CALL, TypeApiPromise } from '@/lib/client';
 import TopEarnersModal from './components/TopEarnersModal';
 import RulesModal from './components/RulesModal';
 import AboutModal from './components/AboutModal';
@@ -9,6 +9,7 @@ import ProfileModal from './components/ProfileModal';
 import UserStats from './components/UserStats';
 import DailyProgress from './components/DailyProgress';
 import BottomNavigation from './components/BottomNavigation';
+import  { MaintenanceModel } from '@/components/Maintenance.Model';
 
 import ReferralModal from './components/ReferralModal';
 
@@ -110,7 +111,7 @@ export default function Home() {
             await window.show_9103912();
             dispatch(watchAdRequest());
 
-        } catch (err) {
+        } catch (err) { 
             console.error('Error watching ad:', err);
             toast.error(err instanceof Error ? err.message : 'Failed to watch ad');
         } finally {
@@ -118,11 +119,28 @@ export default function Home() {
         }
     };
 
+    const [maintenanceData , setmaintenanceData] = useState<any>(null)
+    
+    useEffect(() =>{
+        API_CALL({ url : '/admin/maintenance'})
+        .then((res) => setmaintenanceData(res.response)) 
 
+   }, [])
+ 
+
+   
+
+    if(maintenanceData?.isEnabled){
+        return (
+            <MaintenanceModel  data={ maintenanceData }  />
+        )
+    }
 
 
     return (
         <div className="min-h-screen bg-gray-900 text-white">
+             
+
             {/* Mobile Header with Profile and Language */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800/50 shadow-lg md:hidden">
                 <div className="flex items-center justify-between px-4 py-2">
@@ -148,12 +166,13 @@ export default function Home() {
                 onClose={() => setIsProfileModalOpen(false)}
             />
 
+ 
             {/* Referral Modal */}
             <ReferralModal
                 isOpen={isReferralModalOpen}
                 onClose={() => setIsReferralModalOpen(false)}
             />
-
+            
             {/* Main Content */}
             <main className="container mx-auto px-2 pt-16 pb-20 sm:px-4 sm:py-20 max-w-4xl">
                 <div className="bg-gray-800/95 backdrop-blur-md border-0 sm:border sm:border-gray-700 sm:rounded-2xl shadow-xl p-3 sm:p-6 space-y-4 sm:space-y-6">
@@ -207,7 +226,7 @@ export default function Home() {
                     <DirectLinks   />
                 </div>
             </main>
-
+           
             {/* Bottom Navigation */}
             <BottomNavigation
                 onWithdraw={() => setIsWithdrawalModalOpen(true)}
@@ -224,6 +243,7 @@ export default function Home() {
                 onClose={() => setIsTopEarnersModalOpen(false)}
 
             />
+            
             <RulesModal
                 isOpen={isRulesModalOpen}
                 onClose={() => setIsRulesModalOpen(false)}
@@ -251,7 +271,7 @@ export default function Home() {
 
             />
 
-  
+ 
 
         </div>
     );

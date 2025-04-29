@@ -16,6 +16,13 @@ export default function SettingsPage() {
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
 
+  // Maintenance Settings State
+  const [maintenanceEnabled, setMaintenanceEnabled] = useState(false);
+  const [maintenanceMessage, setMaintenanceMessage] = useState('');
+  const [allowedIps, setAllowedIps] = useState('');
+  const [startTime, setStartTime] = useState('');
+  const [endTime, setEndTime] = useState('');
+
   // Bot Configuration State
   const [botToken, setBotToken] = useState('');
   const [botUsername, setBotUsername] = useState('');
@@ -30,6 +37,17 @@ export default function SettingsPage() {
       }
 
       const data = await response.json();
+
+      // Load maintenance settings
+      const maintenanceResponse = await fetch('/api/admin/maintenance');
+      if (maintenanceResponse.ok) {
+        const maintenanceData = await maintenanceResponse.json();
+        setMaintenanceEnabled(maintenanceData.isEnabled);
+        setMaintenanceMessage(maintenanceData.message || '');
+        setAllowedIps(maintenanceData.allowedIps?.join(', ') || '');
+        setStartTime(maintenanceData.startTime ? new Date(maintenanceData.startTime).toISOString().slice(0, 16) : '');
+        setEndTime(maintenanceData.endTime ? new Date(maintenanceData.endTime).toISOString().slice(0, 16) : '');
+      }
 
       // Update bot settings
       if (data.bot_config) {
@@ -95,6 +113,21 @@ export default function SettingsPage() {
     setLoading(true);
 
     try {
+      // Save maintenance settings
+      await fetch('/api/admin/maintenance', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          isEnabled: maintenanceEnabled,
+          message: maintenanceMessage,
+          allowedIps: allowedIps.split(',').map(ip => ip.trim()).filter(ip => ip),
+          startTime: startTime ? new Date(startTime) : null,
+          endTime: endTime ? new Date(endTime) : null
+        })
+      });
+
       const settings = {
         bot: {
           token: botToken,
@@ -332,6 +365,71 @@ export default function SettingsPage() {
                       />
                       <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-800 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                     </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Maintenance Settings */}
+              <div className="bg-gray-900 rounded-2xl shadow-lg border border-gray-800 p-6 mb-6">
+                <h2 className="text-xl font-semibold mb-6 text-gray-100">Maintenance Mode</h2>
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between p-4 bg-gray-800 rounded-xl">
+                    <div>
+                      <h3 className="font-medium text-gray-100">Maintenance Mode</h3>
+                      <p className="text-sm text-gray-400">Enable maintenance mode to restrict access to the site</p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={maintenanceEnabled}
+                        onChange={(e) => setMaintenanceEnabled(e.target.checked)}
+                        className="sr-only peer"
+                      />
+                      <div className="w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-800 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-400 mb-2">Maintenance Message</label>
+                    <textarea
+                      value={maintenanceMessage}
+                      onChange={(e) => setMaintenanceMessage(e.target.value)}
+                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      placeholder="Enter maintenance message"
+                      rows={3}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-400 mb-2">Allowed IPs (comma-separated)</label>
+                    <input
+                      type="text"
+                      value={allowedIps}
+                      onChange={(e) => setAllowedIps(e.target.value)}
+                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      placeholder="Enter allowed IPs"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-400 mb-2">Start Time</label>
+                      <input
+                        type="datetime-local"
+                        value={startTime}
+                        onChange={(e) => setStartTime(e.target.value)}
+                        className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-400 mb-2">End Time</label>
+                      <input
+                        type="datetime-local"
+                        value={endTime}
+                        onChange={(e) => setEndTime(e.target.value)}
+                        className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
