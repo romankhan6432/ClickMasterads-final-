@@ -42,9 +42,8 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
       className={`min-h-screen flex flex-col items-center justify-center ${className}`}
       style={{ backgroundColor }}
     >
-      {/* Logo with pulsing animation */}
+      {/* Logo */}
       <div className="mb-8 relative">
-        <div className="absolute inset-0 rounded-full bg-yellow-500 opacity-20 animate-ping" style={{ animationDuration: '2s' }}></div>
         <div className="relative">
           <Image 
             src={logoUrl} 

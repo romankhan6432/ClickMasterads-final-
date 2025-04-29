@@ -145,7 +145,7 @@ export default function DirectLinks() {
                     key={link._id}
                     variants={item}
                     onClick={() => handleClick(link)}
-                    className={`group relative flex items-center justify-center w-full h-16 rounded-xl shadow-lg overflow-hidden transition-all duration-300 rgb-border-animation hover:scale-105 hover:shadow-2xl ${isLocked ? 'opacity-60 cursor-not-allowed' : ''}`}
+                    className={`group relative flex items-center justify-center w-full h-16 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl ${isLocked ? 'opacity-60 cursor-not-allowed' : ''}`}
                     style={{
                         background: `linear-gradient(to right, var(--tw-gradient-from- , var(--tw-gradient-to- ))`
                     }}
@@ -153,7 +153,7 @@ export default function DirectLinks() {
                 >
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
                     <div className="flex items-center space-x-2 relative z-10">
-                        <span className={`text-2xl transition-transform group-hover:scale-110 rgb-text-animation`}>
+                        <span className={`text-2xl`}>
                             {link.icon}
                         </span>
                         <span className="text-sm sm:text-base font-bold text-white group-hover:text-opacity-90">
