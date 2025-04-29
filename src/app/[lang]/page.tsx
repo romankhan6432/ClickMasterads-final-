@@ -9,7 +9,7 @@ import ProfileModal from './components/ProfileModal';
 import UserStats from './components/UserStats';
 import DailyProgress from './components/DailyProgress';
 import BottomNavigation from './components/BottomNavigation';
-import  { MaintenanceModel } from '@/components/Maintenance.Model';
+import MaintenanceModel from '@/components/Maintenance.Model';
 
 import ReferralModal from './components/ReferralModal';
 
@@ -131,16 +131,12 @@ export default function Home() {
 
    
 
-    if(true){
-        return (
-            <MaintenanceModel   />
-        )
-    }
-
+    
 
     return (
         <div className="min-h-screen bg-gray-900 text-white">
-             
+              <MaintenanceModel   />
+              
 
             {/* Mobile Header with Profile and Language */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800/50 shadow-lg md:hidden">
