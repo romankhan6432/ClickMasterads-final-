@@ -1,20 +1,14 @@
 import { useState, useEffect, FC } from 'react';
 import { motion } from 'framer-motion';
+import { RootState } from '@/modules/store';
+import {   useSelector } from 'react-redux';
 
-interface MaintenanceData {
-    startTime: string;
-    endTime: string;
-    message: string;
-    isEnabled: boolean;
-}
-
-export const MaintenanceModel : FC<any>= (props) => {
+export const MaintenanceModel  = ( ) => {
     const [progress, setProgress] = useState(0);
     const [estimatedTime, setEstimatedTime] = useState('');
     const [currentTime, setCurrentTime] = useState(new Date());
     const [isAnimating, setIsAnimating] = useState(true);
-
-    const maintenanceData =  props.data;
+    const maintenanceData : any = useSelector((state : RootState) => state.private.settings.maintenance )
     
     useEffect(() => {
         const startTime = new Date(maintenanceData.startTime);

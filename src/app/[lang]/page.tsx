@@ -39,6 +39,11 @@ export default function Home() {
     const { data: session, status } : any = useSession();
     const { user } = useSelector((state : RootState) => state.public.auth)
 
+    useEffect(() =>{
+        dispatch(loadSettings())
+   }, [dispatch])
+
+
     if (status === 'unauthenticated') {
         router.push('/auth');
     }
@@ -121,16 +126,14 @@ export default function Home() {
 
  
     const maintenanceData = useSelector((state : RootState) => state.private.settings.maintenance )
-    useEffect(() =>{
-        dispatch(loadSettings())
-   }, [dispatch])
+   
  
 
    
 
-    if(maintenanceData.isEnabled){
+    if(true){
         return (
-            <MaintenanceModel  data={ maintenanceData }  />
+            <MaintenanceModel   />
         )
     }
 
