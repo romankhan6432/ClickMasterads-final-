@@ -514,7 +514,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
                           )}
                         </div>
                       </div>
-                      minimum withdraw 150 BDT
+                      minimum withdraw 900 BDT
                     </form>
                   </div>
                 )}
@@ -544,7 +544,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
                         !amount ||
                         !phoneNumber ||
                         !!getPhoneNumberError(phoneNumber) ||
-                        Number(amount) < 150 ||
+                        Number(amount) <900 ||
                         Number(amount) > usdtEquivalent
                       }
                     >
