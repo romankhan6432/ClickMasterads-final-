@@ -193,21 +193,18 @@ export default function MaintenanceModel() {
 
                     {/* Contact Info */}
                     <div className="text-sm text-gray-300">
-                        Contact admin: <a href="mailto:support@roman.dev" className="underline hover:text-white">support@roman.dev</a> <br />
-                        Telegram: <a href="https://t.me/roman_admin" target="_blank" className="underline hover:text-white">@roman_admin</a>
+                        channel: <a href="https://t.me/Nur6432" className="underline hover:text-white">https://t.me/Nur6432</a> <br />
+                       admin: <a href="https://t.me/@nurislamroman" target="_blank" className="underline hover:text-white">@nurislamroman</a>
                     </div>
                     {/* Social Icons */}
                     <div className="flex justify-center gap-4 text-2xl text-white">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/romankhan6432" target="_blank" rel="noopener noreferrer">
                             <FaFacebook className="hover:text-blue-500 transition-colors duration-200" />
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                            <FaTwitter className="hover:text-blue-400 transition-colors duration-200" />
-                        </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                            <FaInstagram className="hover:text-pink-500 transition-colors duration-200" />
-                        </a>
-                        <Link  href="https://t.me/your_channel" target="_blank" rel="noopener noreferrer">
+                       
+                        <Link  href="https://t.me/Nur6432" target="_blank" rel="noopener noreferrer">
+
+                        
                             <svg
                                 className="w-6 h-6 hover:text-blue-400 transition-colors duration-200"
                                 fill="currentColor"
@@ -221,6 +218,14 @@ export default function MaintenanceModel() {
                                 />
                             </svg>
                         </Link>
+
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                            <FaTwitter className="hover:text-blue-400 transition-colors duration-200" />
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram className="hover:text-pink-500 transition-colors duration-200" />
+                        </a>
+                        
                     </div>
 
                     <p className="text-xs text-gray-500">© {new Date().getFullYear()} ROMAN. All rights reserved.</p>
