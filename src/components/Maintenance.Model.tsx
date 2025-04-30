@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/modules/store';
 import { MaintenanceSettings } from '@/modules/private/settings/types';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaTelegramPlane } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function MaintenanceModel() {
     const maintenanceData = useSelector((state: RootState) => state.private.settings.maintenance);
@@ -91,9 +94,8 @@ export default function MaintenanceModel() {
                         </div>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl font-bold text-white animate-rgb-flicker">
-                        Under Maintenance
-                    </h1>
+
+                    <div className="text-2xl md:text-4xl font-bold tracking-wide animate-rgb-flicker"> Under Maintenance</div>
 
                     <style jsx global>{`
                         @keyframes rgbFlicker {
@@ -178,17 +180,53 @@ export default function MaintenanceModel() {
 
 
 
-                    <div className="pt-4 md:pt-6">
-                        <button
-                            onClick={() => setIsOpen(false)}
-                            className="w-full md:w-auto px-8 py-3 md:py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 text-lg md:text-xl"
-                        >
 
-                            thanks for visit
-                        </button>
-
-                    </div>
                 </div>
+
+                <div className="mt-8 text-white text-center space-y-4">
+
+                    <p className="text-sm md:text-base text-gray-400">
+                        Connecting the world through innovation. Follow us for updates.
+                    </p>
+
+
+
+                    {/* Contact Info */}
+                    <div className="text-sm text-gray-300">
+                        Contact admin: <a href="mailto:support@roman.dev" className="underline hover:text-white">support@roman.dev</a> <br />
+                        Telegram: <a href="https://t.me/roman_admin" target="_blank" className="underline hover:text-white">@roman_admin</a>
+                    </div>
+                    {/* Social Icons */}
+                    <div className="flex justify-center gap-4 text-2xl text-white">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <FaFacebook className="hover:text-blue-500 transition-colors duration-200" />
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                            <FaTwitter className="hover:text-blue-400 transition-colors duration-200" />
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram className="hover:text-pink-500 transition-colors duration-200" />
+                        </a>
+                        <Link  href="https://t.me/your_channel" target="_blank" rel="noopener noreferrer">
+                            <svg
+                                className="w-6 h-6 hover:text-blue-400 transition-colors duration-200"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M9.04 17.75c-.39 0-.32-.15-.45-.52l-1.13-3.72L17.14 7.5" />
+                                <path
+                                    d="M9.04 17.75c.3 0 .43-.14.6-.3l1.6-1.54 3.33 2.43c.61.33 1.05.16 1.2-.57L19.98 5.8c.2-.84-.33-1.22-.89-1.03L3.42 10.36c-.81.32-.8.79-.14 1 .59.18 1.3.4 2.01.63l11.72-7.37"
+                                    fillRule="evenodd"
+                                />
+                            </svg>
+                        </Link>
+                    </div>
+
+                    <p className="text-xs text-gray-500">© {new Date().getFullYear()} ROMAN. All rights reserved.</p>
+                </div>
+
+
             </div>
         </div>
 
@@ -196,4 +234,16 @@ export default function MaintenanceModel() {
 
 
     );
-} 
+}
+
+///https://www.facebook.com/romankhan6432
+
+////https://t.me/Nur6432
+
+
+
+
+
+
+
+

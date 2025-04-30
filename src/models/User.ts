@@ -86,7 +86,7 @@ const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>({
     },
     balance: {
         type: Number,
-        default: 5
+        default: 0
     },
     totalEarnings: {
         type: Number,
