@@ -113,6 +113,14 @@ export async function GET() {
             throw new Error('Failed to create or fetch about data');
         }
 
+
+
+
+       
+
+
+
+
         return NextResponse.json({ 
             success: true, 
             data: {
