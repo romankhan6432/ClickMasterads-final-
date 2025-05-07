@@ -403,7 +403,7 @@ export default function DirectLinkPage() {
                 <label className="block text-gray-300 mb-2 font-medium">Reward Per Click ($)</label>
                 <input
                   type="number"
-                  step="0.001"
+                  step="0.0005"
                   min="0"
                   value={editingLink ? editingLink.rewardPerClick : formData.rewardPerClick}
                   onChange={(e) => editingLink

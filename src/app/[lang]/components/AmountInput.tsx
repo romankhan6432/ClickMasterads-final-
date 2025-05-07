@@ -43,7 +43,7 @@ export function AmountInput({
               {...field}
               type="number"
               inputMode="decimal"
-              step={isCryptoPayment ? '0.001' : '1'}
+              step={isCryptoPayment ? '0.0005' : '1'}
               className={`w-full ${styles.sectionBg} rounded-lg p-3 pr-20 border ${error ? 'border-red-500' : 'border-[#2B3139]'} focus:border-[#F0B90B] focus:outline-none focus:ring-1 focus:ring-[#F0B90B]/20 transition-all duration-200 placeholder:text-gray-500 ${styles.text.primary}`}
               placeholder="0.00"
               disabled={isDisabled}

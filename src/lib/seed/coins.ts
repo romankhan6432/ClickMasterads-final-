@@ -73,7 +73,7 @@ const defaultCoins = [
     maxAmount: 1000,
     exchangeRate: 500, // Default exchange rate in USD
     network: 'BSC',
-    withdrawalFee: 0.001,
+    withdrawalFee: ,
     confirmations: 15,
     isStableCoin: false,
     decimals: 18
