@@ -94,7 +94,7 @@ export async function POST(request: Request) {
 
   } catch (error) {
     console.error('Error processing ad watch:', error);
-    const errorResponse = { error: 'Failed to process ad watch', status: 500 };
+    const errorResponse = { error: 'Please wait 15 secound before watching another ad', status: 500 };
     handleApiError(errorResponse);
     return NextResponse.json(
       { error: errorResponse.error, message: 'Internal Server Error', status: errorResponse.status }, 
