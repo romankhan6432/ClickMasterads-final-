@@ -74,7 +74,11 @@ export async function POST(request: Request) {
                 handleApiError(errorResponse);
                 return NextResponse.json(errorResponse, { status: 429 });
             }
+  
 
+
+
+            
             // Update user stats
             user.adsWatched = (user.adsWatched || 0) + 1;
             user.balance = (user.balance || 0) + 0.001; // Add 0.01 for each ad view

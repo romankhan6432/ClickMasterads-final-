@@ -177,7 +177,7 @@ export async function POST(req: Request) {
             method
         );
 
-        // Validate amount based on payment method
+        // Validate amount based on payment method ..
         if (isCryptoPayment) {
             if (amountInUSDT < MIN_CRYPTO_AMOUNT) {
                 return NextResponse.json(
