@@ -531,7 +531,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
                       onClick={onClose}
                       className="flex-1 py-3 rounded-lg bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors font-medium disabled:opacity-60"
                       disabled={isSubmitting}
-                    >
+                    >    
                       {t('withdrawal.cancel', 'Cancel')}
                     </button>
                     <button
@@ -562,5 +562,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
     </Transition>
   );
 };
+
+  
 
 export default WithdrawalModal; 
