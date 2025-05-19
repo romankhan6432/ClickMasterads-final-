@@ -34,20 +34,10 @@ export default function LanguageSwitcher() {
   }, []);
 
   const handleLanguageChange = (locale: string) => {
-    // Get the current path segments
-    const segments = pathname.split('/');
-    
-    // Replace the language segment or add it if it doesn't exist
-    if (segments.length > 1 && /^[a-z]{2}$/.test(segments[1])) {
-      segments[1] = locale;
-    } else {
-      segments.splice(1, 0, locale);
-    }
-    
-    // Navigate to the new path
-    const newPath = segments.join('/');
-    router.push(newPath);
-    
+    // Get the current path without the locale prefix
+    const pathWithoutLocale = pathname.split('/').slice(2).join('/');
+    // Navigate to the new locale path
+    router.push(`/${locale}/${pathWithoutLocale}`);
     setIsOpen(false);
   };
 
@@ -81,16 +71,16 @@ export default function LanguageSwitcher() {
               <button
                 key={locale}
                 onClick={() => handleLanguageChange(locale)}
-                className={`w-full text-left px-4 py-2 text-sm flex items-center gap-2 hover:bg-[#1E2A45] transition-all duration-200 ${currentLocale === locale ? 'bg-[#1E2A45] text-white' : 'text-gray-300'}`}
+                className={`block w-full text-left px-4 py-2 text-sm hover:bg-[#1E2A45] transition-all duration-200 ${currentLocale === locale ? 'bg-[#1E2A45] text-white' : 'text-gray-300'}`}
                 role="menuitem"
               >
-                <span className="text-xl">{getFlagEmoji(locale)}</span>
-                <span>
-                  {locale === 'en' && 'English'}
-                  {locale === 'bn' && 'Bengali'}
-                  {locale === 'hi' && 'Hindi'}
-                  {locale === 'es' && 'Spanish'}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xl">{getFlagEmoji(locale)}</span>
+                  <span className="font-medium">{locale === 'en' ? 'English' : 
+                                               locale === 'bn' ? 'Bengali' : 
+                                               locale === 'hi' ? 'Hindi' : 
+                                               locale === 'es' ? 'Spanish' : locale.toUpperCase()}</span>
+                </div>
               </button>
             ))}
           </div>

@@ -92,7 +92,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
     {
       id: 'rocket',
       name: 'Rocket',
-      image: '/images/rocket.png',
+      image: 'https://images.seeklogo.com/logo-png/31/1/dutch-bangla-rocket-logo-png_seeklogo-317692.png',
       color: 'rgb(82, 43, 131)',
       status: 'active',
       message: 'Service currently not available',
