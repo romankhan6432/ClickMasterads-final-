@@ -507,7 +507,7 @@ const WithdrawalModal = ({ isOpen, onClose }: WithdrawalModalProps) => {
                               </div>
                               <div className="flex justify-between text-sm">
                                 <span className="text-gray-400">{t('withdrawal.usdtEquivalent', 'Equivalent in USDT')}:</span>
-                                <span className="text-blue-400">{usdtEquivalent} USDT</span>
+                                <span className="text-blue-400">{usdtEquivalent} BDT</span>
                               </div>
                              
                             </div>
