@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
- 
+
 import { useState, useEffect, useRef } from 'react';
 
 const getFlagEmoji = (locale: string) => {
@@ -28,7 +28,7 @@ export default function LanguageSwitcher() {
         setIsOpen(false);
       }
     };
-       
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
@@ -61,7 +61,7 @@ export default function LanguageSwitcher() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
-        </span>
+        </span> 
       </button>
 
       {isOpen && (
@@ -76,10 +76,10 @@ export default function LanguageSwitcher() {
               >
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{getFlagEmoji(locale)}</span>
-                  <span className="font-medium">{locale === 'en' ? 'English' : 
-                                               locale === 'bn' ? 'Bengali' : 
-                                               locale === 'hi' ? 'Hindi' : 
-                                               locale === 'es' ? 'Spanish' : locale.toUpperCase()}</span>
+                  <span className="font-medium">{locale === 'en' ? 'English' :
+                    locale === 'bn' ? 'Bengali' :
+                      locale === 'hi' ? 'Hindi' :
+                        locale === 'es' ? 'Spanish' : locale.toUpperCase()}</span>
                 </div>
               </button>
             ))}
