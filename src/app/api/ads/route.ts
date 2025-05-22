@@ -57,7 +57,7 @@ export async function POST(request: Request) {
     if (user.referredBy) {
       const referrer = await User.findById(user.referredBy);
       if (referrer) {
-        const commission = reward * 0.1; // 10% commission
+        const commission = reward * 0.05; // 5% commission
         referrer.balance += commission;
         referrer.totalEarnings += commission;
         await referrer.save();

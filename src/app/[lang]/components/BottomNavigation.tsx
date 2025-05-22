@@ -7,13 +7,12 @@ import { RootState } from '@/modules/store';
 interface BottomNavigationProps {
     onWithdraw: () => void;
     onTopEarners: () => void;
-    onRules: () => void;
     onAbout: () => void;
     onSupport: () => void;
     onNotice: () => void;
 }
 
-export default function BottomNavigation({ onWithdraw, onTopEarners, onRules, onAbout, onSupport, onNotice }: BottomNavigationProps) {
+export default function BottomNavigation({ onWithdraw, onTopEarners, onAbout, onSupport, onNotice }: BottomNavigationProps) {
     const { t } = useTranslation();
     const maintenanceData = useSelector((state: RootState) => state.private.settings.maintenance);
     
@@ -27,7 +26,6 @@ export default function BottomNavigation({ onWithdraw, onTopEarners, onRules, on
                 <div className="flex justify-around items-center py-2 sm:py-3 gap-1">
                     <NavButton icon="💰" label={t('withdraw')} onClick={onWithdraw} />
                     <NavButton icon="👑" label={t('topEarners')} onClick={onTopEarners} />
-                    <NavButton icon="📜" label={t('rules')} onClick={onRules} />
                     <NavButton icon="🔔" label={t('notice')} onClick={onNotice} />
                     <NavButton icon="ℹ️" label={t('about')} onClick={onAbout} />
                     <NavButton icon="👥" label={t('referral.inviteFriends')} onClick={onSupport} />

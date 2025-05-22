@@ -51,12 +51,12 @@ export async function GET() {
             }
         ]);
 
-        // Calculate commission for each referred user (10% of their earnings)
+        // Calculate commission for each referred user (5% of their earnings)
         const referredUsersWithCommission = referredUsers.map(referredUser => ({
             ...referredUser,
             joinedAt: referredUser.createdAt,
             totalEarnings: referredUser.totalEarnings || 0,
-            commission: (referredUser.totalEarnings || 0) * 0.1 // 10% commission
+            commission: (referredUser.totalEarnings || 0) * 0.05 // 5% commission
         }));
 
         if (!user) {

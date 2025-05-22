@@ -77,7 +77,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
 
   
     
-     const referralBonus = 10; // 10% bonus
+     const referralBonus = 5; // 5% bonus
 
     const copyToClipboard = async (text: string, type: 'link' | 'code') => {
         try {

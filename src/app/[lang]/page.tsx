@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { API_CALL, TypeApiPromise } from '@/lib/client';
 import TopEarnersModal from './components/TopEarnersModal';
-import RulesModal from './components/RulesModal';
+
 import AboutModal from './components/AboutModal';
 import ProfileModal from './components/ProfileModal';
 import UserStats from './components/UserStats';
@@ -63,11 +63,9 @@ export default function Home() {
     const {
         isWithdrawalModalOpen,
         isTopEarnersModalOpen,
-        isRulesModalOpen,
         isAboutModalOpen,
         setIsWithdrawalModalOpen,
         setIsTopEarnersModalOpen,
-        setIsRulesModalOpen,
         setIsAboutModalOpen,
     } = useModals();
     
@@ -231,7 +229,6 @@ export default function Home() {
             <BottomNavigation
                 onWithdraw={() => setIsWithdrawalModalOpen(true)}
                 onTopEarners={() => setIsTopEarnersModalOpen(true)}
-                onRules={() => setIsRulesModalOpen(true)}
                 onAbout={() => setIsAboutModalOpen(true)}
                 onSupport={() => setIsReferralModalOpen(true)}
                 onNotice={() => setIsNoticeModalOpen(true)}
@@ -244,11 +241,7 @@ export default function Home() {
 
             />
             
-            <RulesModal
-                isOpen={isRulesModalOpen}
-                onClose={() => setIsRulesModalOpen(false)}
 
-            />
             <AboutModal
                 isOpen={isAboutModalOpen}
                 onClose={() => setIsAboutModalOpen(false)}
@@ -260,7 +253,12 @@ export default function Home() {
                     features: 'Features',
                     howItWorks: 'How It Works',
                     support: 'Support',
-                    version: 'Version'
+                    version: 'Version',
+                    rules: 'Rules & Guidelines',
+                    general: 'General Rules',
+                    earnings: 'Earnings',
+                    withdrawals: 'Withdrawals',
+                    safety: 'Safety & Security'
                 }}
             />
 
