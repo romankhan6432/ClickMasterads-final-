@@ -15,8 +15,8 @@ interface AboutModalProps {
     };
 }
 
-export default function AboutModal({ 
-    isOpen, 
+export default function AboutModal({
+    isOpen,
     onClose,
     dictionary = {
         about: 'About ClickMaster',
@@ -55,7 +55,7 @@ export default function AboutModal({
                 <div className="sticky top-0 z-10 p-4 border-b border-gray-800 bg-gradient-to-r from-purple-500 to-indigo-500">
                     <div className="flex items-center justify-between">
                         <h2 className="text-xl font-bold text-white">{dictionary.about}</h2>
-                        <button 
+                        <button
                             onClick={onClose}
                             className="w-8 h-8 flex items-center justify-center rounded-full bg-black/20 text-white/80 hover:text-white transition-all hover:bg-black/30 active:scale-95"
                         >
@@ -79,7 +79,7 @@ export default function AboutModal({
                         <h3 className="text-lg font-semibold text-white">{dictionary.features}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {features.map((feature, index) => (
-                                <div 
+                                <div
                                     key={index}
                                     className="p-4 rounded-xl bg-gray-800/30 border border-gray-700/50 hover:border-purple-500/30 transition-colors"
                                 >
@@ -102,7 +102,7 @@ export default function AboutModal({
                         <h3 className="text-lg font-semibold text-white">{dictionary.howItWorks}</h3>
                         <div className="space-y-4">
                             {howItWorks.map((step, index) => (
-                                <div 
+                                <div
                                     key={index}
                                     className="flex items-center gap-4 p-3 rounded-lg bg-gray-800/30"
                                 >
@@ -124,21 +124,33 @@ export default function AboutModal({
                                     💬
                                 </div>
                                 <div>
-                                <p>  <p className="text-gray-300">Need help? Contact our support team through Telegram </p>
-                                   channel <a href="https://t.me/Nur6432" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">
+                                    <p>  <p className="text-gray-300">Need help? Contact our support team through Telegram </p>
+                                        channel <a href="https://t.me/Nur6432" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">
+                                            @Nur islam Roman </a></p>
+
+                                    <p> Admin/Ceo <a href="https://t.me/nurislamroman" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">
                                         @Nur islam Roman </a></p>
 
-                                        <p> Admin/Ceo <a href="https://t.me/nurislamroman" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">
-                                        @Nur islam Roman </a></p>
+                                    devoloper <a href="https://t.me/MdRijonHossainJibon" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">
+                                        @MdRijonHossainJibon</a>
 
-                                        devoloper <a href="https://t.me/MdRijonHossainJibon" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">
-                                        @MdRijonHossainJibon
+                                    <p className="font-bold mt-4 rgb-flicker" style={{ animation: "rgbFlicker 1s linear infinite" }}>Contact the Admin and developer to design the Bot/website according to your preferences  </p>
+                                    <style jsx>{`
+                                            @keyframes rgbFlicker {
+                                                0% { color: rgb(255, 0, 0); }
+                                                33% { color: rgb(0, 255, 0); }
+                                                66% { color: rgb(0, 0, 255); }
+                                                100% { color: rgb(255, 0, 0); }
+                                            }
+                                            .rgb-flicker {
+                                                font-weight: bold;
+                                            }
+                                        `}</style>
+  
+
+  
 
 
-                                        
-                                        
-
-                                    </a>
                                 </div>
                             </div>
                         </div>
