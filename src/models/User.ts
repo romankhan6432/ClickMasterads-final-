@@ -63,7 +63,7 @@ const userSchema = new mongoose.Schema<IUser, UserModel, IUserMethods>({
         default: 'Roman1234',
         validate: {
             validator: function(v: string) {
-                // Minimum 6 characters
+                // m 6 characters
                 return v.length >= 6;
             },
             message: 'Password must be at least 6 characters long'
